@@ -1,0 +1,30 @@
+{% extends 'Layouts/base.html.twig' %}
+
+{% block title %}Update reservation
+{% endblock %}
+
+{% block body %}
+
+	<div class="nav-hero">
+		{% include "layouts/navbar.html.twig" %}
+
+	</div>
+   
+    <div class="row my-4">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    Update reservation
+                </div>
+                <div class="card-body">
+                    {{form(form)}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	{# {% include "layouts/footer.html.twig" %} #}
+
+
+{% endblock %}

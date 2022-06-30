@@ -1,0 +1,38 @@
+{% extends 'Layouts/base.html.twig' %}
+
+{% block title %}Stardust
+{% endblock %}
+
+{% block body %}
+
+	<div class="nav-hero">
+		{% include "layouts/navbar.html.twig" %}
+	</div>
+	<div class="container-fluid room_container">
+		<img src="{{asset('uploads/'~room.image)}}" width="800px">
+		<h1>{{room.title}}</h1>
+		<p>{{room.description}}</p>
+		<p>{{room.price}}</p>
+		{% if app.user %}
+		 	{% if is_granted("ROLE_USER") %}
+				<a href="{{path('reservation_create', {id: room.id})}}" class="btn btn-success">Reserveer</a>
+				{% elseif is_granted("ROLE_BALIE") %}
+									<a href="{{path('reservation_create', {id: room.id})}}" class="btn btn-success">vv</a>
+				{% elseif is_granted("ROLE_ADMIN") %}
+					<a href="{{path('room_edit', {id: room.id})}}" class="btn btn-success">Edit</a>
+			{% endif %}
+		{% else %}
+			<a href="{{path('app_login')}}" class="btn btn-success">Login om te reserveren </a>
+			
+		{% endif %}
+		
+		
+
+
+	</div>
+
+
+	{% include "layouts/footer.html.twig" %}
+
+
+{% endblock %}

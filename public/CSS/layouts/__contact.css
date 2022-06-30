@@ -1,0 +1,65 @@
+.contact-container{
+    background-image: url('../../images/sea.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+    gap: 3rem;
+
+}
+.contact-container h1{
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+ }
+ 
+
+
+.card-custom-contact{
+    height: 20rem;
+    width: 18rem;
+    border-radius: 15px !important;
+    background: none !important;
+    border: white solid 2px !important;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);	
+    margin: 0 15px;
+}
+.card-body-custom-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+
+}
+.ct-costom-contact{
+    width: 70%;
+    text-align: center;
+    color: #005456;
+    font-weight: 500;
+    background-color: #ffffff57;
+    border-radius: 10px;
+    padding: 5px;
+}
+.card-body-custom-contact :nth-child(1){
+    font-size: 2rem;
+  }
+
+  .c-title-contact {
+      color:#ffffff ;
+  }
+  .ic1-contact{
+        color:#0a5da7 ;
+  }
+
+  .ic2-contact{
+        color:#058284 ;
+  }
+
+  .ic3-contact{
+        color:#a5f57d ;
+  }
+

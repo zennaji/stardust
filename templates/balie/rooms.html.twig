@@ -1,0 +1,69 @@
+{% extends 'Layouts/base.html.twig' %}
+
+{% block title %}ROOM LIST
+{% endblock %}
+
+{% block body %}
+
+	<div class="nav-hero">
+		{% include "layouts/navbar.html.twig" %}
+	</div>
+   <div class="container">
+
+    <div class="row my-5">
+        <div class="col-md-10 mx-auto">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Rooms</span>
+                    
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderd table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>TITLE</th>
+                                <th>DESCRIPTION</th>
+                                <th>IMAGE</th>
+                                <th>PRICE</th>
+                                <th>NUMBER</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for room in rooms %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                     <td>{{room.title}}</td>
+                                     <td>{{room.description}}</td>
+                                     <td>
+                                        {% if room.image %}
+                                            <img src="{{asset('uploads/'~room.image)}}" alt="{{room.title}}"  width="60" height="60" class="fluid my-2 rounded">
+                                            {% else %}
+                                            <img src="{{asset('uploads/default.jpg')}}" alt="{{room.title}}"  width="60" height="60" class="fluid my-2 rounded">
+                                        {% endif %}
+                                    </td>
+                                     <td>€{{room.price}}</td>
+                                     <td>{{room.number}}</td>
+                                       {% if room.status %}
+                                       <td>Available</td>
+                                        {% else %}
+                                        <td>Not Available</td>
+                                       {% endif %}
+                                     
+                                </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+    
+	
+	{# {% include "layouts/footer.html.twig" %} #}
+
+
+{% endblock %}

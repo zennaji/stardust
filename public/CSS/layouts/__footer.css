@@ -1,0 +1,27 @@
+footer{
+    background-color: #16c5dc;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #777;
+     color: white;
+}
+ 
+.footer-nav-1 a, .footer-nav-2 a{
+    color: white;
+    text-decoration: none;
+}
+.footer-nav-1 a:hover, .footer-nav-2 a:hover{
+    color: rgba(255, 255, 255, 0.544);
+ }
+footer .footer-nav-1, .footer-nav-2{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    
+}

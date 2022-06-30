@@ -1,0 +1,20 @@
+{% extends 'Layouts/base.html.twig' %}
+
+{% block title %}Balie 
+{% endblock %}
+
+{% block body %}
+
+	<div class="nav-hero">
+		{% include "layouts/navbar.html.twig" %}
+	</div>
+     
+	{# <a href="{{path('')}}">Overzicht Beschikbarheid kamers</a> #}
+	<h3><a href="{{path('balie_reservation')}}">Overzicht Reserveringen </a></h3>
+	<br>
+	<h3><a href="{{path('balie_rooms')}}">Overzicht Kamers </a></h2>
+	
+	{# {% include "layouts/footer.html.twig" %} #}
+
+
+{% endblock %}

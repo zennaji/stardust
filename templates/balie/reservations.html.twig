@@ -1,0 +1,60 @@
+{% extends 'Layouts/base.html.twig' %}
+
+{% block title %}ROOM LIST
+{% endblock %}
+
+{% block body %}
+
+	<div class="nav-hero">
+		{% include "layouts/navbar.html.twig" %}
+	</div>
+   <div class="container">
+
+    <div class="row my-5">
+        <div class="col-md-10 mx-auto">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>List of reservations</span>
+                    <a href="{{path('room_create')}}" class="btn btn-sm btn-primary">
+                        Add
+                    </a>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderd table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NAME USER</th>
+                                <th>PHONE</th>
+                                <th>EMAIL</th>
+                                <th>CHECKIN</th>
+                                <th>CHECKOUT</th>
+                                <th>ROOM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reservation in reservations %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                     <td>{{reservation.name}}</td>
+                                     <td>{{reservation.phone}}</td>
+                                     <td>{{reservation.email}}</td>
+                                     <td>{{reservation.checkin | date("m/d/Y")}}</td>
+                                     <td>{{reservation.checkout | date("m/d/Y")}}</td>
+                                     <td>{{reservation.room.id}}</td>
+                                </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+    
+	
+	{# {% include "layouts/footer.html.twig" %} #}
+
+
+{% endblock %}

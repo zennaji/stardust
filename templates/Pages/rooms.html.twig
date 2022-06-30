@@ -1,0 +1,55 @@
+{% extends 'Layouts/base.html.twig' %}
+
+{% block title %}Rooms
+{% endblock %}
+
+{% block body %}
+
+	<div class="nav-hero">
+		{% include "layouts/navbar.html.twig" %}
+	</div>
+	
+        <div class="container-fluid">
+            <div class="row">
+                {% for room in rooms %}
+                <div class="col-md-12">
+                        <div class="wrap">
+                        <div class="card">
+                        <a href="{{path('room_details', {id: room.id})}}">
+                            <div class="price">{{room.price}}<span class="glyphicon glyphicon-eur" aria-hidden="true"></span>  / nacht</div>
+                            <div class="image"><img src="{{asset('uploads/'~room.image)}}" alt=""></div>
+                            <div class="description">
+                                <div class="row">
+                                <div class="col-sm-3"><h4>{{room.title}}</h4></div>
+                                <div class="col-sm-9">
+                                    <ul>
+                                    <li><i class="fa-solid fa-user"></i><p>3 personen</p></li>
+                                    <li><i class="fa-solid fa-wifi"></i><p>Gratis WI-FI</p></li>
+                                    <li><i class="fa-solid fa-utensils"></i><p>Keuken</p></li>
+                                    <li><i class="fa-solid fa-droplet"></i><p>Badkamer</p></li>
+                                     {% if room.status %}
+                                    <li><i class="fa-solid fa-check text-success"></i><p>Beschikbaar</p></li>
+                                    {% else %}
+                                    <li><i class="fa-solid fa-times text-danger"></i><p>Gereserveerd</p></li>
+                                    
+                                    {% endif %}
+                                    </ul>                
+                                </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                
+            </div>
+        </div>
+
+
+
+	{% include "layouts/footer.html.twig" %}
+
+
+{% endblock %}

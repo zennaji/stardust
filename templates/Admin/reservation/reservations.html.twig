@@ -1,0 +1,72 @@
+{% extends 'Layouts/base.html.twig' %}
+
+{% block title %}Reservations
+{% endblock %}
+
+{% block body %}
+
+	<div class="nav-hero">
+		{% include "layouts/navbar.html.twig" %}
+	</div>
+   <div class="container">
+
+    <div class="row my-5">
+        <div class="col-md-10 mx-auto">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+             {% endfor %}
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Reservations</span>
+                    <a href="{{path('room_create')}}" class="btn btn-sm btn-primary">
+                        Add
+                    </a>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderd table-hover">
+                        <thead>
+                            <tr>
+                                 <th>ID</th>
+                                <th>NAME</th>
+                                <th>PHONE</th>
+                                <th>EMAIL</th>
+                                <th>CHECKIN</th>
+                                <th>CHECKOUT</th>
+                                <th>ROOM</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reservation in reservations %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    <td>{{reservation.name}}</td>
+                                    <td>{{reservation.phone}}</td>
+                                    <td>{{reservation.email}}</td>
+                                    <td>{{reservation.checkin | date("m/d/Y")}}</td>
+                                    <td>{{reservation.checkout | date("m/d/Y")}}</td>
+                                    <td>{{reservation.room.title}}</td>
+                                    <td class="d-flex justify-content-around  ">
+                                        <a href="" class="btn btn-sm btn-dark">Show <i class="fa-solid fa-eye"></i></a>
+                                        <a href="{{path('reservation_edit', {id: reservation.id})}}" class="btn btn-sm btn-warning">Edit <i class="fa-solid fa-pen-to-square"></i></a>
+                                        <form id="{{reservation.id}}" action="{{path('reservation_delete', {id: reservation.id})}}" method="POST"></form>
+                                        <button onclick="deleteItem('{{reservation.id}}')" class="btn btn-sm btn-danger">Delete <i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+    
+	
+	{# {% include "layouts/footer.html.twig" %} #}
+
+
+{% endblock %}

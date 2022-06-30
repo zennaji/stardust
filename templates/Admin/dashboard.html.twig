@@ -1,0 +1,19 @@
+{% extends 'Layouts/base.html.twig' %}
+
+{% block title %}ADMIN DASHBOARD{% endblock %}
+
+
+
+{% block body %}
+
+	<div class="nav-hero">
+		{% include "layouts/navbar.html.twig" %}
+	</div>
+    <h1>ADMIN DASHBOARD</h1>
+	<a href="{{path('reservation_list')}}">RESERVATIONS</a>
+	<hr>
+	<a href="{{path('rooms_list')}}">ROOMS</a>
+	<hr>
+	<a href="{{path('user_list')}}">USERS</a>
+
+{% endblock %}
